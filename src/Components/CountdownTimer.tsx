@@ -4,7 +4,7 @@ const CountdownTimer = () => {
   // State declarations
   const [timeLeft, setTimeLeft] = useState(60);
   const [isActive, setIsActive] = useState(false);
-  const timerRef = useRef();
+  const timerRef = useRef(0);
 
   useEffect(() => {
     // when isActive or timeLeft changes
