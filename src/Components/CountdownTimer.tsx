@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from "react";
 
 const CountdownTimer = () => {
   // State declarations
-  const [timeLeft, setTimeLeft] = useState(60);
-  const [isActive, setIsActive] = useState(false);
-  const timerRef = useRef(0);
+  const [timeLeft, setTimeLeft] = useState(60); // tid kvar
+  const [isActive, setIsActive] = useState(false); // pågående eller pausad, true/false
+  const timerRef = useRef(0); // reference to the interval timer, paus eller återställning
 
   useEffect(() => {
-    // when isActive or timeLeft changes
+    // när isActive eller timeLeft ändras, stannar om tiden är 0
     if (isActive && timeLeft > 0) {
       // starta nedräkning
       timerRef.current = setInterval(() => {
@@ -23,7 +23,7 @@ const CountdownTimer = () => {
       }, 1000);
     }
 
-    // cleanup
+    // start och stopp med cleanup
     return () => clearInterval(timerRef.current);
   }, [isActive, timeLeft]);
 
