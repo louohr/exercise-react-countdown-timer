@@ -27,17 +27,6 @@ const CountdownTimer = () => {
     return () => clearInterval(timerRef.current);
   }, [isActive, timeLeft]);
 
-  // starta timer
-  const startTimer = () => {
-    setIsActive(true);
-  };
-
-  // pausa timer
-  const pauseTimer = () => {
-    setIsActive(false);
-    clearInterval(timerRef.current);
-  };
-
   // återställ timer
   const resetTimer = () => {
     setIsActive(false);
@@ -49,12 +38,8 @@ const CountdownTimer = () => {
     <div>
       <h1>Nedräkningstimer</h1>
       <h2>{timeLeft} sekunder kvar</h2>
-      <button onClick={startTimer} disabled={isActive}>
-        Starta
-      </button>
-      <button onClick={pauseTimer} disabled={!isActive}>
-        Pausa
-      </button>
+      <button onClick={() => setIsActive(true)}>Starta</button>
+      <button onClick={() => setIsActive(false)}>Pausa</button>
       <button onClick={resetTimer}>Återställ</button>
     </div>
   );
