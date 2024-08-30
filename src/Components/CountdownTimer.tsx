@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from "react";
 
 const CountdownTimer = () => {
   // State declarations
-  const [timeLeft, setTimeLeft] = useState(5); // tid kvar
-  const [isActive, setIsActive] = useState(false); // uppdaterar timeleft, aktiv eller inte
+  const [timeLeft, setTimeLeft] = useState<number>(5); // tid kvar
+  const [isActive, setIsActive] = useState<boolean>(false); // uppdaterar timeleft, aktiv eller inte
   const timerRef = useRef(0); // reference to the interval timer, paus eller återställning
-  const [message, setMessage] = useState(""); // meddelande när timer är slut
+  const [message, setMessage] = useState<string>(""); // meddelande när timer är slut
 
   useEffect(() => {
     // när isActive eller timeLeft ändras, stannar om tiden är 0
